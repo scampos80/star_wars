@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_22_035450) do
+ActiveRecord::Schema.define(version: 2020_02_22_040256) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(version: 2020_02_22_035450) do
     t.string "birth_year"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "planet_id"
+    t.integer "race_id"
+    t.index ["planet_id"], name: "index_characters_on_planet_id"
+    t.index ["race_id"], name: "index_characters_on_race_id"
   end
 
   create_table "characters_films", force: :cascade do |t|
@@ -42,6 +46,24 @@ ActiveRecord::Schema.define(version: 2020_02_22_035450) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "films_planets", force: :cascade do |t|
+    t.integer "film_id"
+    t.integer "planet_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["film_id"], name: "index_films_planets_on_film_id"
+    t.index ["planet_id"], name: "index_films_planets_on_planet_id"
+  end
+
+  create_table "films_races", force: :cascade do |t|
+    t.integer "film_id"
+    t.integer "race_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["film_id"], name: "index_films_races_on_film_id"
+    t.index ["race_id"], name: "index_films_races_on_race_id"
+  end
+
   create_table "planets", force: :cascade do |t|
     t.string "name"
     t.string "diameter"
@@ -61,6 +83,12 @@ ActiveRecord::Schema.define(version: 2020_02_22_035450) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "characters", "planets"
+  add_foreign_key "characters", "races"
   add_foreign_key "characters_films", "characters"
   add_foreign_key "characters_films", "films"
+  add_foreign_key "films_planets", "films"
+  add_foreign_key "films_planets", "planets"
+  add_foreign_key "films_races", "films"
+  add_foreign_key "films_races", "races"
 end
