@@ -1,2 +1,29 @@
-<h1>Films#show</h1>
-<p>Find me in app/views/films/show.html.erb</p>
+<h2><%= @film.name %></h2>
+<ul>
+  <li>Episode <%= @film.episodeID %></li>
+  <li>Release Date: <%= @film.release_date %></li>
+  <li>Director: <%= @film.director %></li>
+  <li>Producer: <%= @film.producer %></li>
+  <li>Opening Crawl: <%= @film.opening_crawl %></li>
+</ul>
+<h3>Characters</h3>
+<ul>
+  <% @film.characters.each do |character| %>
+    <li><%= link_to character.name, character %></li>
+  <% end %>
+</ul>
+<h3>Planets</h3>
+<ul>
+  <% @film.planets.each do |planet| %>
+    <li><%= link_to planet.name, planet %></li>
+  <% end %>
+</ul>
+<h3>Races</h3>
+<ul>
+  <% @film.races.each do |race| %>
+    <li><%= link_to race.name, race %></li>
+  <% end %>
+</ul>
+
+
+<p><%= link_to 'Home', root_path %></p>

@@ -1,2 +1,4 @@
-<h1>Films#index</h1>
-<p>Find me in app/views/films/index.html.erb</p>
+<h1>Star Wars Films</h1>
+<% @films.each do |film| %>
+  <h2><%= link_to film.name, film %></h2>
+<% end %>

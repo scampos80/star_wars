@@ -1,2 +1,20 @@
-<h1>Planets#show</h1>
-<p>Find me in app/views/planets/show.html.erb</p>
+<h2><%= @planet.name %></h2>
+<ul>
+  <li>Population: <%= @planet.population %></li>
+  <li>Diameter: <%= @planet.diameter %></li>
+  <li>Climate: <%= @planet.climate %></li>
+</ul>
+<h3>Characters</h3>
+<ul>
+  <% @planet.characters.each do |character| %>
+    <li><%= link_to character.name, character %></li>
+  <% end %>
+</ul>
+<h3>Films</h3>
+<ul>
+  <% @planet.films.each do |film| %>
+    <li><%= link_to film.name, film %></li>
+  <% end %>
+</ul>
+
+<p><%= link_to 'Back', planets_path%></p>

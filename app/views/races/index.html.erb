@@ -1,2 +1,4 @@
-<h1>Races#index</h1>
-<p>Find me in app/views/races/index.html.erb</p>
+<h1>Star Wars Races</h1>
+<% @races.each do |race| %>
+  <h2><%= link_to race.name, race %></h2>
+<% end %>

@@ -1,2 +1,22 @@
-<h1>Characters#show</h1>
-<p>Find me in app/views/characters/show.html.erb</p>
+<h2><%= @character.name %></h2>
+<ul>
+  <li>Birth Year: <%= @character.birth_year %></li>
+  <li>Race: <%= @character.race.name %></li>
+  <li>Height: <%= @character.height %></li>
+  <li>Mass: <%= @character.mass %></li>
+  <li>Gender: <%= @character.gender %></li>
+</ul>
+<h3>Planets</h3>
+<ul>
+  <% @character.planet.each do |planet| %>
+    <li><%= link_to planet.name, planet %></li>
+  <% end %>
+</ul>
+<h3>Films</h3>
+<ul>
+  <% @character.films.each do |film| %>
+    <li><%= link_to film.name, film %></li>
+  <% end %>
+</ul>
+
+<p><%= link_to 'Back', characters_path%></p>
