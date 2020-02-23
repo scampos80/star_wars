@@ -4,4 +4,5 @@ class Character < ApplicationRecord
   belongs_to :race
 
   validates :name, :gender, presence: true
+  validates :name, length: { minimum: 2 }
 end
