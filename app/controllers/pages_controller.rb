@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  http_basic_authenticate_with name: "sandro", password: "1822"
+  http_basic_authenticate_with name: "sandro", password: "1234", except: :permalink
 
   before_action :set_page, only: [:show, :edit, :update, :destroy]
 

@@ -14,7 +14,7 @@
         <li><%= link_to "Characters", characters_path %></li>
         <li><%= link_to "Races", races_path %></li>
         <li><%= link_to "Planets", planets_path %></li>
-        <li>About</li>
+        <li><%= link_to 'About', permalink_path(permalink: 'about_us') %></li>
       </ul>
     </nav>
     <%= yield %>
