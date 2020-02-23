@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :pages
   resources :films, only: [:index, :show]
   # get "/films", to: 'films#index'
   # get '/films/:id', to: 'films#show', id: /\d/
