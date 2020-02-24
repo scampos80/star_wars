@@ -1,4 +1,22 @@
-<h1>Star Wars Characters</h1>
-<% @characters.each do |character| %>
-  <h2><%= link_to character.name, character %></h2>
-<% end %>
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1>Star Wars Characters</h1>
+    <p></p>
+  </div>
+</section>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <% @characters.each do |character| %>
+      <div class="col-md-2 mb-4">
+        <div class="card h-100 mb-4 shadow-sm">
+          <%= link_to (image_tag "#{character.id}.jpg", :class => "card-img-top", :width =>"100%"), character %>
+          <div class="card-body">
+            <p class="card-text text-center"><%= character.name %></p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

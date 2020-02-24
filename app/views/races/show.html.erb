@@ -1,21 +1,58 @@
-<h2><%= @race.name %></h2>
-<ul>
-  <li>Classification: <%= @race.classification %></li>
-  <li>Avg Height: <%= @race.average_height %></li>
-  <li>Avg Lifespan: <%= @race.average_lifespan %></li>
-  <li>Language: <%= @race.language %></li>
-</ul>
-<h3>Characters</h3>
-<ul>
-  <% @race.characters.each do |character| %>
-    <li><%= link_to character.name, character %></li>
-  <% end %>
-</ul>
-<h3>Films</h3>
-<ul>
-  <% @race.films.each do |film| %>
-    <li><%= link_to film.name, film %></li>
-  <% end %>
-</ul>
-
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1>Race Details</h1>
+    <p></p>
+  </div>
+</section>
+<div class="ml-5">
+<div class="card mb-3" style="max-width: 600px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <%= image_tag "R#{@race.id}.jpg", :class => "card-img" %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= @race.name %></h5>
+        <p class="card-text mb-1"><small>Classification: <%= @race.classification %></small></p>
+        <p class="card-text mb-1"><small>Avg Height: <%= @race.average_height %></small></p>
+        <p class="card-text mb-1"><small>Avg Lifespan: <%= @race.average_lifespan %></small></p>
+        <p class="card-text mb-1"><small>Language: <%= @race.language %></small></p>
+      </div>
+    </div>
+  </div>
+</div>
 <p><%= link_to 'Back', races_path%></p>
+<div class= "row mt-5">
+  <div class = "col-md-6">
+    <div class="container">
+      <div class="row">
+        <% @race.characters.each do |character| %>
+        <div class="col-md-3">
+          <div class="card m-4">
+            <%= link_to (image_tag "#{character.id}.jpg", :class => "card-img-top"), character %>
+            <div class="card-body">
+              <p class="card-text text-center"><%= character.name %></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class = "col-md-6">
+    <div class="container">
+      <div class="row">
+        <% @race.films.each do |film| %>
+        <div class="col-md-3">
+          <div class="card m-4">
+            <%= link_to (image_tag "F#{film.id}.jpg", :class => "card-img-top") film %>
+            <div class="card-body">
+              <p class="card-text text-center"><%= film.name %></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

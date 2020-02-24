@@ -1,20 +1,57 @@
-<h2><%= @planet.name %></h2>
-<ul>
-  <li>Population: <%= @planet.population %></li>
-  <li>Diameter: <%= @planet.diameter %></li>
-  <li>Climate: <%= @planet.climate %></li>
-</ul>
-<h3>Characters</h3>
-<ul>
-  <% @planet.characters.each do |character| %>
-    <li><%= link_to character.name, character %></li>
-  <% end %>
-</ul>
-<h3>Films</h3>
-<ul>
-  <% @planet.films.each do |film| %>
-    <li><%= link_to film.name, film %></li>
-  <% end %>
-</ul>
-
-<p><%= link_to 'Back', planets_path%></p>
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1>Planet Details</h1>
+    <p></p>
+  </div>
+</section>
+<div class="ml-5">
+<div class="card mb-3" style="max-width: 800px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <%= image_tag "P#{@planet.id}.jpg", :class => "card-img" %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= @planet.name %></h5>
+        <p class="card-text mb-1"><small>Population: <%= @planet.population %></small></p>
+        <p class="card-text mb-1"><small>Diameter: <%= @planet.diameter %></small></p>
+        <p class="card-text mb-1"><small>Climate: <%= @planet.climate %></small></p>
+      </div>
+    </div>
+  </div>
+</div>
+<p><%= link_to 'Home', root_path %></p>
+<div class= "row mt-5">
+  <div class = "col-md-6">
+    <div class="container">
+      <div class="row">
+        <% @planet.characters.each do |character| %>
+        <div class="col-md-3">
+          <div class="card m-4">
+            <%= link_to (image_tag "#{character.id}.jpg", :class => "card-img-top"), character %>
+            <div class="card-body">
+              <p class="card-text text-center"><%= character.name %></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class = "col-md-6">
+    <div class="container">
+      <div class="row">
+        <% @planet.films.each do |film| %>
+        <div class="col-md-3">
+          <div class="card m-4">
+            <%= link_to (image_tag "F#{film.id}.jpg", :class => "card-img-top"), film %>
+            <div class="card-body">
+              <p class="card-text text-center"><%= film.name %></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,22 @@
-<h1>Star Wars Films</h1>
-<% @films.each do |film| %>
-  <h2><%= link_to film.name, film %></h2>
-<% end %>
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1>Star Wars Films</h1>
+    <p></p>
+  </div>
+</section>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <% @films.each do |film| %>
+      <div class="col-md-2 mb-4">
+        <div class="card h-100 mb-4 shadow-sm">
+          <%= link_to (image_tag "F#{film.id}.jpg", :class => "card-img-top" ), film %>
+          <div class="card-body">
+            <p class="card-text text-center"><%= film.name %></p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

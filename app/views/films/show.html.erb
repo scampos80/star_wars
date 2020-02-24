@@ -1,29 +1,75 @@
-<h2><%= @film.name %></h2>
-<ul>
-  <li>Episode <%= @film.episodeID %></li>
-  <li>Release Date: <%= @film.release_date %></li>
-  <li>Director: <%= @film.director %></li>
-  <li>Producer: <%= @film.producer %></li>
-  <li>Opening Crawl: <%= @film.opening_crawl %></li>
-</ul>
-<h3>Characters</h3>
-<ul>
-  <% @film.characters.each do |character| %>
-    <li><%= link_to character.name, character %></li>
-  <% end %>
-</ul>
-<h3>Planets</h3>
-<ul>
-  <% @film.planets.each do |planet| %>
-    <li><%= link_to planet.name, planet %></li>
-  <% end %>
-</ul>
-<h3>Races</h3>
-<ul>
-  <% @film.races.each do |race| %>
-    <li><%= link_to race.name, race %></li>
-  <% end %>
-</ul>
-
-
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1>Film Details</h1>
+    <p></p>
+  </div>
+</section>
+<div class="ml-5">
+<div class="card mb-3" style="max-width: 800px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <%= image_tag "F#{@film.id}.jpg", :class => "card-img" %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= @film.name %></h5>
+        <p class="card-text mb-1"><small>Episode <%= @film.episodeID %></small></p>
+        <p class="card-text mb-1"><small>Release Date: <%= @film.release_date %></small></p>
+        <p class="card-text mb-1"><small>Director: <%= @film.director %></small></p>
+        <p class="card-text mb-1"><small>Producer: <%= @film.producer %></small></p>
+        <p class="card-text mb-1"><small>Opening Crawl: <%= @film.opening_crawl %></small></p>
+      </div>
+    </div>
+  </div>
+</div>
 <p><%= link_to 'Home', root_path %></p>
+<div class= "row mt-5">
+  <div class = "col-md-4">
+    <div class="container">
+      <div class="row">
+        <% @film.characters.each do |character| %>
+        <div class="col-md-4">
+          <div class="card m-2">
+            <%= image_tag "#{character.id}.jpg", :class => "card-img-top" %>
+            <div class="card-body">
+              <p class="card-text text-center"><%= link_to character.name, character %></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class = "col-md-4">
+    <div class="container">
+      <div class="row">
+        <% @film.planets.each do |planet| %>
+        <div class="col-md-4">
+          <div class="card m-2">
+            <%= link_to (image_tag "P#{planet.id}.jpg", :class => "card-img-top"), planet %>
+            <div class="card-body">
+              <p class="card-text text-center"><%= planet.name %></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class = "col-md-4">
+    <div class="container">
+      <div class="row">
+        <% @film.races.each do |race| %>
+        <div class="col-md-4">
+          <div class="card m-2">
+            <%= image_tag "R#{race.id}.jpg", :class => "card-img-top" %>
+            <div class="card-body">
+              <p class="card-text text-center"><%= link_to race.name, race %></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

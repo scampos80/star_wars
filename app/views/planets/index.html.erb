@@ -1,4 +1,22 @@
-<h1>Star Wars Planets</h1>
-<% @planets.each do |planet| %>
-  <h2><%= link_to planet.name, planet %></h2>
-<% end %>
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1>Star Wars Planets</h1>
+    <p></p>
+  </div>
+</section>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <% @planets.each do |planet| %>
+      <div class="col-md-2 mb-4">
+        <div class="card h-100 mb-4 shadow-sm">
+          <%= link_to (image_tag "P#{planet.id}.jpg", :class => "card-img-top"), planet %>
+          <div class="card-body">
+            <p class="card-text text-center"><%= planet.name %></p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
