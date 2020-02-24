@@ -4,4 +4,6 @@ class Planet < ApplicationRecord
 
   validates :name, :climate, presence: true
   validates :name, length: { minimum: 2 }
+
+  paginates_per 6
 end

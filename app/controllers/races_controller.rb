@@ -1,6 +1,6 @@
 class RacesController < ApplicationController
   def index
-    @races = Race.order(:id)
+    @races = Race.order(:id).page(params[:page])
   end
 
   def show

@@ -5,4 +5,6 @@ class Film < ApplicationRecord
 
   validates :name, :director, :producer, :release_date, :opening_crawl,  presence: true
   validates :episodeID, numericality: { only_integer: true }
+
+  paginates_per 6
 end

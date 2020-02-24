@@ -1,6 +1,6 @@
 class PlanetsController < ApplicationController
   def index
-    @planets = Planet.order(:name)
+    @planets = Planet.order(:id).page(params[:page])
   end
 
   def show

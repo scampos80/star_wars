@@ -4,4 +4,6 @@ class Race < ApplicationRecord
 
   validates :name, :language, presence: true
   validates :name, length: { minimum: 2 }
+
+  paginates_per 6
 end

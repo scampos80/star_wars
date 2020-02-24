@@ -5,4 +5,6 @@ class Character < ApplicationRecord
 
   validates :name, :gender, presence: true
   validates :name, length: { minimum: 2 }
+
+  paginates_per 6
 end

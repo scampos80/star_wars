@@ -6,6 +6,7 @@
 </section>
 <div class="album py-5 bg-light">
   <div class="container">
+   <%= paginate @planets %>
     <div class="row">
       <% @planets.each do |planet| %>
       <div class="col-md-2 mb-4">
