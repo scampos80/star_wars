@@ -11,7 +11,7 @@
       <% @characters.each do |character| %>
       <div class="col-md-2 mb-4">
         <div class="card h-100 mb-4 shadow-sm">
-          <%= link_to (image_tag "#{character.id}.jpg", :class => "card-img-top", :width =>"100%"), character %>
+          <%= link_to (image_tag "#{character.id}.jpg", :class => "card-img-top", :alt => "#{character.name} image"), character %>
           <div class="card-body">
             <p class="card-text text-center"><%= character.name %></p>
           </div>

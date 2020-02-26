@@ -11,7 +11,7 @@
       <% @films.each do |film| %>
       <div class="col-md-2 mb-4">
         <div class="card h-100 mb-4 shadow-sm">
-          <%= link_to (image_tag "F#{film.id}.jpg", :class => "card-img-top" ), film %>
+          <%= link_to (image_tag "F#{film.id}.jpg", :class => "card-img-top", :alt => "#{film.name} image" ), film %>
           <div class="card-body">
             <p class="card-text text-center"><%= film.name %></p>
           </div>

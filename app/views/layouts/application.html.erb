@@ -14,7 +14,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <a class="navbar-brand" href=<%= films_path %>>
-        <%= image_tag "baby_yoda.png", width: "40", height: "40" %>
+        <%= image_tag "baby_yoda.png", width: "40", height: "40", :alt => "baby yoda image" %>
       </a>
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
@@ -34,11 +34,11 @@
           <a class="nav-link" href=<%= races_path %>>Races</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href=<%= permalink_path 'about_us' %>>About Us</a>
+          <a class="nav-link" href=<%= about_path %>>About Us</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control mr-sm-2" id="query" name="query" type="search" placeholder="Search" aria-label="Search">
         <select class="form-control form-control-md mr-2">
         <% races = Race.all %>
         <% races.each do |race|%>
@@ -50,9 +50,9 @@
 
     </div>
   </nav>
-
   <%= yield %>
-<footer class="text-muted">
+
+<footer class="text-muted text-center mt-5">
   <div class="container">
     <p class="float-right">
       <a href="#">Back to top</a>
@@ -60,9 +60,11 @@
     <p>
       Star Wars and all associated names and/or images are copyright Lucasfilm Ltd. Images were freely collected from Wookiepedia.
     </p>
+    <p>
+      Copyright © 2020 Sandro Campos.
+    </p>
   </div>
 </footer>
-
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

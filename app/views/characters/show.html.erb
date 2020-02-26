@@ -5,31 +5,32 @@
   </div>
 </section>
 <div class="ml-5">
-<div class="card mb-3" style="max-width: 540px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <%= image_tag "#{@character.id}.jpg", :class => "card-img" %>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><%= @character.name %></h5>
-        <p class="card-text mb-1"><small>Birth Year: <%= @character.birth_year %></small></p>
-        <p class="card-text mb-1"><small>Race: <%= link_to @character.race.name, race_path %></small></p>
-        <p class="card-text mb-1"><small>Height: <%= @character.height %></small></p>
-        <p class="card-text mb-1"><small>Mass: <%= @character.mass %></small></p>
-        <p class="card-text mb-1"><small>Gender: <%= @character.gender %></small></p>
-        <p class="card-text mb-1"><small>Planet: <%= link_to @character.planet.name, planet_path %></small></p>
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <%= image_tag "#{@character.id}.jpg", :class => "card-img", :alt => "#{@character.name} image" %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= @character.name %></h5>
+          <p class="card-text mb-1"><small><strong>Birth Year: </strong><%= @character.birth_year %></small></p>
+          <p class="card-text mb-1"><small><strong>Race: </strong><%= link_to @character.race.name, "/races/#{@character.race.id}" %></small></p>
+          <p class="card-text mb-1"><small><strong>Height: </strong><%= @character.height %></small></p>
+          <p class="card-text mb-1"><small><strong>Mass: </strong><%= @character.mass %></small></p>
+          <p class="card-text mb-1"><small><strong>Gender: </strong><%= @character.gender %></small></p>
+          <p class="card-text mb-1"><small><strong>Planet: </strong><%= link_to @character.planet.name, "/planets/#{@character.planet.id}" %></small></p>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<p><%= link_to 'Back', characters_path%></p>
+<p class="ml-5"><%= link_to 'Back', characters_path%></p>
 <div class="container">
   <div class="row">
     <% @character.films.each do |film| %>
     <div class="col-md-3 mb-4">
       <div class="card m-5">
-        <%= link_to (image_tag "F#{film.id}.jpg", :class => "card-img-top"), film %>
+        <%= link_to (image_tag "F#{film.id}.jpg", :class => "card-img-top", :alt => "#{film.name}"), film %>
         <div class="card-body">
           <p class="card-text text-center"><%= film.name %></p>
         </div>

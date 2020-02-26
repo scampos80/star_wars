@@ -5,30 +5,32 @@
   </div>
 </section>
 <div class="ml-5">
-<div class="card mb-3" style="max-width: 800px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <%= image_tag "P#{@planet.id}.jpg", :class => "card-img" %>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><%= @planet.name %></h5>
-        <p class="card-text mb-1"><small>Population: <%= @planet.population %></small></p>
-        <p class="card-text mb-1"><small>Diameter: <%= @planet.diameter %></small></p>
-        <p class="card-text mb-1"><small>Climate: <%= @planet.climate %></small></p>
+  <div class="card mb-3" style="max-width: 800px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <%= image_tag "P#{@planet.id}.jpg", :class => "card-img", :alt => "#{@planet.name} image" %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= @planet.name %></h5>
+          <p class="card-text mb-1"><small><strong>Population: </strong><%= @planet.population %></small></p>
+          <p class="card-text mb-1"><small><strong>Diameter: </strong><%= @planet.diameter %></small></p>
+          <p class="card-text mb-1"><small><strong>Climate: </strong><%= @planet.climate %></small></p>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<p><%= link_to 'Home', root_path %></p>
+<p class="ml-5"><%= link_to 'Home', root_path %></p>
 <div class= "row mt-5">
   <div class = "col-md-6">
     <div class="container">
+      <h5>Characters</h5>
       <div class="row">
         <% @planet.characters.each do |character| %>
         <div class="col-md-3">
           <div class="card m-4">
-            <%= link_to (image_tag "#{character.id}.jpg", :class => "card-img-top"), character %>
+            <%= link_to (image_tag "#{character.id}.jpg", :class => "card-img-top", :alt => "#{character.name} image"), character %>
             <div class="card-body">
               <p class="card-text text-center"><%= character.name %></p>
             </div>
@@ -40,11 +42,12 @@
   </div>
   <div class = "col-md-6">
     <div class="container">
+      <h5>Films</h5>
       <div class="row">
         <% @planet.films.each do |film| %>
         <div class="col-md-3">
           <div class="card m-4">
-            <%= link_to (image_tag "F#{film.id}.jpg", :class => "card-img-top"), film %>
+            <%= link_to (image_tag "F#{film.id}.jpg", :class => "card-img-top", :alt => "#{film.name} image"), film %>
             <div class="card-body">
               <p class="card-text text-center"><%= film.name %></p>
             </div>

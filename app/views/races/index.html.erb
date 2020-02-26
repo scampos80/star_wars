@@ -11,7 +11,7 @@
       <% @races.each do |race| %>
       <div class="col-md-2 mb-4">
         <div class="card h-100 mb-4 shadow-sm">
-          <%= link_to (image_tag "R#{race.id}.jpg", :class => "card-img-top"), race %>
+          <%= link_to (image_tag "R#{race.id}.jpg", :class => "card-img-top", :alt => "#{race.name}"), race %>
           <div class="card-body">
             <p class="card-text text-center"><%= race.name %></p>
           </div>
