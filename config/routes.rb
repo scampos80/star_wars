@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :characters, only: [:index, :show] do
     collection do
-      get 'c_search_results'
+      get 'search_results'
     end
   end
   # get '/characters/:id', to: 'characters#show', id: /\d/

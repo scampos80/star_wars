@@ -37,14 +37,14 @@
           <a class="nav-link" href=<%= about_path %>>About Us</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
+      <form class="form-inline my-2 my-lg-0" action="/characters/search_results">
         <input class="form-control mr-sm-2" id="query" name="query" type="search" placeholder="Search" aria-label="Search">
         <select class="form-control form-control-md mr-2">
-        <% races = Race.all %>
-        <% races.each do |race|%>
-          <option><%= race.name %></option>
-        <% end %>
-      </select>
+          <% races = Race.all %>
+          <% races.each do |race|%>
+            <option><%= race.name %></option>
+          <% end %>
+        </select>
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
 
@@ -58,7 +58,7 @@
       <a href="#">Back to top</a>
     </p>
     <p>
-      Star Wars and all associated names and/or images are copyright Lucasfilm Ltd. Images were freely collected from Wookiepedia.
+      Star Wars and all associated names and/or images are copyright Lucasfilm Ltd. Images from Wookiepedia.
     </p>
     <p>
       Copyright © 2020 Sandro Campos.
