@@ -9,29 +9,36 @@
     <div class="col">
       <h4 class="text-center mb-5">Data Description</h4>
       <p class="text-justify">
-        The API used is a base URL - "https://swapi.co/api/". It is the root URL for all of the API.<br><br>
+        The API used is a base URL - <strong>"https://swapi.co/api/"</strong>. It is the root URL for all of the API.<br><br>
         JSON is the standard data format provided by SWAPI by default. All resources support JSON Schema.
         Making a request to /api/RESOURCE/schema will give you the details of that resource. This will allow
         you to programmatically inspect the attributes of that resource and their types.
+        </p>
+
         <br>
         My Database consists in four tables: Films, Characters, Races, Planets.
         Using One-to-many and Many-to-many relationships.<br>
         <br>
-        TABLES: --------   COLUMNS:
-        <br>
+        <h5>TABLES and COLUMNS:</h5>
+        <p>
         -Films> id, title, episodeID, director, producer, released date, opening crawl, image.<br>
         -Races> id, name, classification, avg height, avg lifespan, language, image.<br>
         -Characters> id, name, gender, height, mass, birth_year, image.<br>
         -Planets> id, name, population, diameter, climate, image.<br>
         -Every single table has> created_at, updated_at columns.
+        </p>
         <br><br>
+        <h5>HOW ?</h5>
+        <p>
+
         In order to create my own database, I planned first:<br>
         - extract data from all four tables.<br>
         - during the extract of each table, create my own 4 tables.<br>
         - creating the many-to-many relationship from these tables<br>
         - finalize adding the images in my database.
+        </p>
         <br>
-      </p>
+
     </div>
     <div class="col-6">
       <h4 class="text-center mb-5">ERD Diagram</h4>
